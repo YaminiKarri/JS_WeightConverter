@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	    <title> Weight convertor</title>
+		<link rel="stylesheet" type="text/css" href="weightconverter.css">
+		<script>
+		function check()
+		{
+			var x;
+			x=document.getElementById('kilograms').value;
+			if(isNaN(x) || x<=0){
+				window.alert("Enter number greater than zero");
+				}
+				else{
+					var num;
+			num=x*1000;
+			document.getElementById('grams').value=num;
+			num=x*2.2046;
+			document.getElementById('pounds').value=num;
+			num=x*1000000;
+			document.getElementById('milligrams').value=num;
+			num=x*0.00110231;
+			document.getElementById('Ton').value=num;
+			num=x*35.274;
+			document.getElementById('ounce').value=num;
+			
+			
+					
+			}
+		}
+		</script>
+</head>
+<body>
+    <div class="tit">WEIGHT CONVERTER</div>
+    <form align="center">
+        <table align="center">
+            <tr>
+                <td><label>Weight in KG:</label></td>
+                <td><input type="number" name="in_kg" id="kilograms"></td>
+                <td><input type="button" value="Convert" name="submit" onclick="check()"></td>
+            </tr>
+			
+			<tr>
+                <td><label>Weight in Grams:</label></td>
+                <td><input type="number" name="in_gr" id="grams"></td>
+                
+            </tr>
+			
+			<tr>
+                <td><label>Weight in Pounds:</label></td>
+                <td><input type="number" name="in_p" id="pounds"></td>
+                
+            </tr>
+			<tr>
+                <td><label>Milligrams:</label></td>
+                <td><input type="number" name="in_m" id="milligrams"></td>
+                
+            </tr>
+			<tr>
+                <td><label>US Ton:</label></td>
+                <td><input type="number" name="in_t" id="Ton"></td>
+                
+            </tr>
+			<tr>
+                <td><label>Ounce:</label></td>
+                <td><input type="number" name="in_o" id="ounce"></td>
+                
+            </tr>
+        </table>
+		
+		<br>
+		<input type="reset" name="reset" value="RESET">
+		<p>you can press reset button for another conversion </p>
+		
+    </form>
+	
+
+</body>
+</html>
