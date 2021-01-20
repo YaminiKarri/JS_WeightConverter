@@ -6,28 +6,62 @@
 		<script>
 		function check()
 		{
-			var x;
-			x=document.getElementById('kilograms').value;
-			if(isNaN(x) || x<=0){
+            var x=document.getElementById("selectFrom").value;
+            var y=document.getElementById("val1").value;
+            var z=document.getElementById("selectInto").value;
+
+            if(isNaN(y) || y<=0){
 				window.alert("Enter number greater than zero");
 				}
-				else{
-					var num;
-			num=x*1000;
-			document.getElementById('grams').value=num;
-			num=x*2.2046;
-			document.getElementById('pounds').value=num;
-			num=x*1000000;
-			document.getElementById('milligrams').value=num;
-			num=x*0.00110231;
-			document.getElementById('Ton').value=num;
-			num=x*35.274;
-			document.getElementById('ounce').value=num;
+			else{
+                switch (x) {
+                    case "kgs":
+                      var num= y;
+                      break;
+                    case "grams":
+                      var num= y/1000;
+                      break;
+                    case "pounds":
+                      var num=y/2.2046;
+                      break;
+                    case "milligrams":
+                      var num=y/1000000;
+                      break;
+                    case "tons":
+                      var num=y/0.00110231;
+                      break;
+                    case "ounces":
+                      var num=y/35.274;
+                }
+                var kg_num=num;
+            }
+
+
+            switch (z) {
+                    case "kgs":
+                      var num1= kg_num;
+                      break;
+                    case "grams":
+                      var num1= kg_num*1000;
+                      break;
+                    case "pounds":
+                      var num1= kg_num*2.2046;
+                      break;
+                    case "milligrams":
+                      var num1=kg_num*1000000;
+                      break;
+                    case "tons":
+                      var num1=kg_num*0.00110231;
+                      break;
+                    case "ounces":
+                      var num1=kg_num*35.274;
+                }   
+            document.getElementById('val2').value=num1;
 			
 			
 					
 			}
-		}
+		
 		</script>
 </head>
 <body>
@@ -35,35 +69,32 @@
     <form align="center">
         <table align="center">
             <tr>
-                <td><label>Weight in KG:</label></td>
-                <td><input type="number" name="in_kg" id="kilograms"></td>
+                <td><label>Weight in:</label></td>
+                <td> <select id="selectFrom">
+                      <option value="kgs">Kilograms</option>
+                      <option value="grams">Grams</option>
+                      <option value="pounds">Pounds</option>
+                      <option value="milligrams">Milligrams</option>
+                      <option value="tons">Tons</option>
+                      <option value="ounces">Ounces</option>
+                    </select>
+                </td> 
+                <td><input type="number" name="val1" id="val1"></td>                 
                 <td><input type="button" value="Convert" name="submit" onclick="check()"></td>
             </tr>
 			
 			<tr>
-                <td><label>Weight in Grams:</label></td>
-                <td><input type="number" name="in_gr" id="grams"></td>
-                
-            </tr>
-			
-			<tr>
-                <td><label>Weight in Pounds:</label></td>
-                <td><input type="number" name="in_p" id="pounds"></td>
-                
-            </tr>
-			<tr>
-                <td><label>Milligrams:</label></td>
-                <td><input type="number" name="in_m" id="milligrams"></td>
-                
-            </tr>
-			<tr>
-                <td><label>US Ton:</label></td>
-                <td><input type="number" name="in_t" id="Ton"></td>
-                
-            </tr>
-			<tr>
-                <td><label>Ounce:</label></td>
-                <td><input type="number" name="in_o" id="ounce"></td>
+                <td><label>Weight in :</label></td>
+                <td> <select id="selectInto">
+                    <option value="kgs">Kilograms</option>
+                    <option value="grams">Grams</option>
+                    <option value="pounds">Pounds</option>
+                    <option value="milligrams">Milligrams</option>
+                    <option value="tons">Tons</option>
+                    <option value="ounces">Ounces</option>
+                  </select>
+              </td> 
+                <td><input type="number" name="val2" id="val2"></td>
                 
             </tr>
         </table>
@@ -77,3 +108,23 @@
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
